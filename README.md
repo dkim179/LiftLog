@@ -1,75 +1,67 @@
-# React + TypeScript + Vite
+![React](https://img.shields.io/badge/React-19-blue)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)
+![Vite](https://img.shields.io/badge/Vite-7-purple)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🏋️ LiftLog
 
-Currently, two official plugins are available:
+LiftLog is a workout tracking application built with React, TypeScript, and Vite.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+This project is not only about building a fitness app, but also about improving my software engineering skills through clean architecture, component design, and modern React development practices.
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Monthly workout calendar
+- Daily workout records
+- Exercise tracking
+- Workout statistics
+- Responsive UI
+- Dark mode (planned)
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React
+- TypeScript
+- Vite
+- CSS
+- Git & GitHub
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Project Structure
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+src/
+├── components/
+├── pages/
+├── styles/
+├── types/
+├── utils/
+├── data/
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Development Philosophy
 
-```
+This project follows a component-first and clean architecture approach.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Some principles I follow include:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Single Responsibility Principle (SRP)
+- Separation of Concerns
+- Reusable Components
+- Type Safety
+- Meaningful Git Commits
+- Incremental Development
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## AI Assistance
 
-```
+I intentionally use ChatGPT as a software engineering mentor throughout this project.
+
+Rather than asking AI to generate an entire application, I build the project feature by feature while discussing architecture, design patterns, React concepts, TypeScript, Git workflow, and code reviews.
+
+My goal is to understand every decision behind the code instead of simply copying solutions.
+
+## Documentation
+
+Additional documentation can be found in the `/docs` directory.
+
+- Architecture
+- Coding Style
+- Development Log
+- UI Planning
+- Roadmap
