@@ -1,4 +1,4 @@
-import { CalendarDay } from "../types/calendar";
+import type { CalendarDay } from "../types/calendar";
 /**
  * Generates all calendar cells for a given month.
  *

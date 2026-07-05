@@ -1,5 +1,5 @@
 /**
- * Represents a single day displayed in the calendar.
+ * Represents a single day displayed in the monthly calendar.
  *
  * A calendar cell may belong to:
  * - The previous month

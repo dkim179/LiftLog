@@ -13,7 +13,7 @@ type CalendarGridProps = {
  */
 export function CalendarGrid({ days }: CalendarGridProps) {
   return (
-    <div>
+    <div className="calendar__grid">
       {days.map((calendarDay) => (
         <CalendarCell
           key={calendarDay.date.toISOString()}

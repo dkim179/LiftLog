@@ -258,3 +258,27 @@ LiftLog is not just a workout tracker.
 It is a long-term portfolio project built with clean architecture, maintainable code, and real-world development practices.
 
 Always prioritize readability, maintainability, and simplicity over writing clever code.
+
+# Development Workflow
+
+Every feature should follow this workflow.
+
+1. Define the goal.
+2. Discuss the architecture.
+3. Implement the feature.
+4. Test locally.
+5. Review the code.
+6. Commit.
+7. Push.
+
+## Type Imports
+
+Always use type-only imports when importing TypeScript types.
+
+Good
+
+import type { CalendarDay } from "../types/calendar";
+
+Bad
+
+import { CalendarDay } from "../types/calendar";
