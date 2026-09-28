@@ -1,6 +1,11 @@
+import { useState } from "react";
+
 import { MonthlyCalendar } from "../components/calendar/MonthlyCalendar";
+import { WorkoutLog } from "../components/workout/WorkoutLog";
 
 export function Home() {
+  const [selectedDate, setSelectedDate] = useState(new Date());
+
   return (
     <main className="home">
       <header className="home__header">
@@ -24,7 +29,12 @@ export function Home() {
         </div>
       </section>
 
-      <MonthlyCalendar />
+      <MonthlyCalendar
+        selectedDate={selectedDate}
+        onSelectDate={setSelectedDate}
+      />
+
+      <WorkoutLog selectedDate={selectedDate} />
     </main>
   );
 }

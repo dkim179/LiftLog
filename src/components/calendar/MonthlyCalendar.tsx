@@ -5,9 +5,16 @@ import { CalendarHeader } from "./CalendarHeader";
 import { WEEKDAYS } from "../../data/calendar";
 import { generateCalendarDays } from "../../utils/calendar";
 
-export function MonthlyCalendar() {
+type MonthlyCalendarProps = {
+  selectedDate: Date;
+  onSelectDate: (date: Date) => void;
+};
+
+export function MonthlyCalendar({
+  selectedDate,
+  onSelectDate,
+}: MonthlyCalendarProps) {
   const [currentDate, setCurrentDate] = useState(new Date());
-  const [selectedDate, setSelectedDate] = useState(new Date());
 
   const year = currentDate.getFullYear();
   const month = currentDate.getMonth();
@@ -31,7 +38,7 @@ export function MonthlyCalendar() {
     const today = new Date();
 
     setCurrentDate(today);
-    setSelectedDate(today);
+    onSelectDate(today);
   }
 
   return (
@@ -52,7 +59,7 @@ export function MonthlyCalendar() {
       <CalendarGrid
         days={days}
         selectedDate={selectedDate}
-        onSelectDate={setSelectedDate}
+        onSelectDate={onSelectDate}
       />
     </section>
   );
