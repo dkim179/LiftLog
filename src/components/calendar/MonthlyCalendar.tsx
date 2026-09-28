@@ -2,12 +2,12 @@ import { useState } from "react";
 
 import { CalendarGrid } from "./CalendarGrid";
 import { CalendarHeader } from "./CalendarHeader";
+import { WEEKDAYS } from "../../data/calendar";
 import { generateCalendarDays } from "../../utils/calendar";
 
-import { WEEKDAYS } from "../../data/calendar";
-
 export function MonthlyCalendar() {
-  const [currentDate] = useState(new Date());
+  const [currentDate, setCurrentDate] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(new Date());
 
   const year = currentDate.getFullYear();
   const month = currentDate.getMonth();
@@ -19,9 +19,29 @@ export function MonthlyCalendar() {
     year: "numeric",
   });
 
+  function handlePreviousMonth() {
+    setCurrentDate(new Date(year, month - 1, 1));
+  }
+
+  function handleNextMonth() {
+    setCurrentDate(new Date(year, month + 1, 1));
+  }
+
+  function handleToday() {
+    const today = new Date();
+
+    setCurrentDate(today);
+    setSelectedDate(today);
+  }
+
   return (
     <section className="calendar">
-      <CalendarHeader monthTitle={monthTitle} />
+      <CalendarHeader
+        monthTitle={monthTitle}
+        onPreviousMonth={handlePreviousMonth}
+        onNextMonth={handleNextMonth}
+        onToday={handleToday}
+      />
 
       <div className="calendar__weekdays">
         {WEEKDAYS.map((weekday) => (
@@ -29,7 +49,11 @@ export function MonthlyCalendar() {
         ))}
       </div>
 
-      <CalendarGrid days={days} />
+      <CalendarGrid
+        days={days}
+        selectedDate={selectedDate}
+        onSelectDate={setSelectedDate}
+      />
     </section>
   );
 }
