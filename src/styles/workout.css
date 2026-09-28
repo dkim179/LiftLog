@@ -490,6 +490,45 @@
     background: #141920;
 }
 
+/* Repeat previous workout */
+
+.workout-log__header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.workout-log__repeat {
+  padding: 11px 16px;
+
+  border: 1px solid #5b503f;
+  border-radius: 10px;
+
+  background: rgba(231, 197, 141, 0.07);
+  color: #ddc397;
+
+  font-size: 13px;
+  font-weight: 650;
+
+  cursor: pointer;
+
+  transition:
+    background 150ms ease,
+    border-color 150ms ease,
+    color 150ms ease,
+    transform 150ms ease;
+}
+
+.workout-log__repeat:hover {
+  border-color: #806d50;
+  background: rgba(231, 197, 141, 0.13);
+  color: #f1d6a7;
+}
+
+.workout-log__repeat:active {
+  transform: scale(0.97);
+}
+
 /* Mobile */
 
 @media (max-width: 600px) {
@@ -539,6 +578,16 @@
     .exercise-card__actions {
         padding-inline: 6px;
     }
+
+    .workout-log__header-actions {
+    width: 100%;
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .workout-log__repeat {
+    width: 100%;
+  }
 }
 
 @media (max-width: 430px) {

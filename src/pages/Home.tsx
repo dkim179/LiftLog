@@ -1,10 +1,15 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 import { MonthlyCalendar } from "../components/calendar/MonthlyCalendar";
 import { WorkoutLog } from "../components/workout/WorkoutLog";
 
 export function Home() {
   const [selectedDate, setSelectedDate] = useState(new Date());
+  const [workoutVersion, setWorkoutVersion] = useState(0);
+
+  const handleWorkoutChange = useCallback(() => {
+    setWorkoutVersion((version) => version + 1);
+  }, []);
 
   return (
     <main className="home">
@@ -32,9 +37,13 @@ export function Home() {
       <MonthlyCalendar
         selectedDate={selectedDate}
         onSelectDate={setSelectedDate}
+        workoutVersion={workoutVersion}
       />
 
-      <WorkoutLog selectedDate={selectedDate} />
+      <WorkoutLog
+        selectedDate={selectedDate}
+        onWorkoutChange={handleWorkoutChange}
+      />
     </main>
   );
 }

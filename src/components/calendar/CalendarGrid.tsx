@@ -9,6 +9,7 @@ type CalendarGridProps = {
   days: CalendarDay[];
   selectedDate: Date;
   onSelectDate: (date: Date) => void;
+  workoutVersion: number;
 };
 
 function isSameDate(a: Date, b: Date) {
@@ -23,7 +24,12 @@ export function CalendarGrid({
   days,
   selectedDate,
   onSelectDate,
+  workoutVersion,
 }: CalendarGridProps) {
+  // workoutVersion intentionally triggers a fresh localStorage read
+  // whenever workout data changes.
+  void workoutVersion;
+
   const workoutDates = new Set(getWorkoutDates());
 
   return (

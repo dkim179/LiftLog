@@ -8,11 +8,13 @@ import { generateCalendarDays } from "../../utils/calendar";
 type MonthlyCalendarProps = {
   selectedDate: Date;
   onSelectDate: (date: Date) => void;
+  workoutVersion: number;
 };
 
 export function MonthlyCalendar({
   selectedDate,
   onSelectDate,
+  workoutVersion,
 }: MonthlyCalendarProps) {
   const [currentDate, setCurrentDate] = useState(new Date());
 
@@ -60,6 +62,7 @@ export function MonthlyCalendar({
         days={days}
         selectedDate={selectedDate}
         onSelectDate={onSelectDate}
+        workoutVersion={workoutVersion}
       />
     </section>
   );

@@ -77,3 +77,19 @@ export function getWorkoutDates(): string[] {
     .filter((workout) => workout.exercises.length > 0)
     .map((workout) => workout.date);
 }
+
+export function getPreviousWorkout(
+  beforeDate: string
+): WorkoutLog | null {
+  const workouts = getWorkoutStorage();
+
+  const previousWorkouts = Object.values(workouts)
+    .filter(
+      (workout) =>
+        workout.date < beforeDate &&
+        workout.exercises.length > 0
+    )
+    .sort((a, b) => b.date.localeCompare(a.date));
+
+  return previousWorkouts[0] ?? null;
+}
