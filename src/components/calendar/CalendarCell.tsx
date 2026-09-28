@@ -3,12 +3,14 @@ import type { CalendarDay } from "../../types/calendar";
 type CalendarCellProps = {
   day: CalendarDay;
   isSelected: boolean;
+  hasWorkout: boolean;
   onSelect: (date: Date) => void;
 };
 
 export function CalendarCell({
   day,
   isSelected,
+  hasWorkout,
   onSelect,
 }: CalendarCellProps) {
   const className = [
@@ -16,6 +18,7 @@ export function CalendarCell({
     !day.isCurrentMonth ? "calendar__cell--muted" : "",
     day.isToday ? "calendar__cell--today" : "",
     isSelected ? "calendar__cell--selected" : "",
+    hasWorkout ? "calendar__cell--has-workout" : "",
   ]
     .filter(Boolean)
     .join(" ");
@@ -28,7 +31,12 @@ export function CalendarCell({
     >
       <span className="calendar__day-number">{day.day}</span>
 
-      {day.isToday && <span className="calendar__today-dot" />}
+      {hasWorkout && (
+        <span
+          className="calendar__workout-dot"
+          aria-label="Workout logged"
+        />
+      )}
     </button>
   );
 }

@@ -69,3 +69,11 @@ export function getRecentExerciseNames(): string[] {
 
   return exerciseNames.slice(0, 8);
 }
+
+export function getWorkoutDates(): string[] {
+  const workouts = getWorkoutStorage();
+
+  return Object.values(workouts)
+    .filter((workout) => workout.exercises.length > 0)
+    .map((workout) => workout.date);
+}

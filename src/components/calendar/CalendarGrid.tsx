@@ -1,4 +1,8 @@
 import type { CalendarDay } from "../../types/calendar";
+
+import { formatDateKey } from "../../utils/date";
+import { getWorkoutDates } from "../../utils/workoutStorage";
+
 import { CalendarCell } from "./CalendarCell";
 
 type CalendarGridProps = {
@@ -20,16 +24,24 @@ export function CalendarGrid({
   selectedDate,
   onSelectDate,
 }: CalendarGridProps) {
+  const workoutDates = new Set(getWorkoutDates());
+
   return (
     <div className="calendar__grid">
-      {days.map((calendarDay) => (
-        <CalendarCell
-          key={calendarDay.date.toISOString()}
-          day={calendarDay}
-          isSelected={isSameDate(calendarDay.date, selectedDate)}
-          onSelect={onSelectDate}
-        />
-      ))}
+      {days.map((calendarDay) => {
+        const dateKey = formatDateKey(calendarDay.date);
+        const hasWorkout = workoutDates.has(dateKey);
+
+        return (
+          <CalendarCell
+            key={calendarDay.date.toISOString()}
+            day={calendarDay}
+            isSelected={isSameDate(calendarDay.date, selectedDate)}
+            hasWorkout={hasWorkout}
+            onSelect={onSelectDate}
+          />
+        );
+      })}
     </div>
   );
 }
